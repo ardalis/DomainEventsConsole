@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using MediatR;
+using DomainEventsConsole.Services;
+using DomainEventsConsole.Repositories;
+using DomainEventsConsole.Interfaces;
 
 namespace DomainEventsConsole
 {
@@ -24,17 +27,13 @@ namespace DomainEventsConsole
         {
             IServiceCollection services = new ServiceCollection();
 
+            services.AddMediatR(typeof(Program));
+            services.AddTransient<AppointmentSchedulingService>();
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<App>();
 
             return services;
         }
     }
 
-    public class App
-    {
-        public void Run()
-        {
-            Console.WriteLine("App running.");
-        }
-    }
 }
