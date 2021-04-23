@@ -1,6 +1,7 @@
 using DomainEventsConsole.Interfaces;
 using DomainEventsConsole.Model;
 using System;
+using System.Threading.Tasks;
 
 namespace DomainEventsConsole.Services
 {
@@ -12,10 +13,10 @@ namespace DomainEventsConsole.Services
             _apptRepository = apptRepository;
         }
 
-        public void ScheduleAppointment(string email, DateTime appointmentTime)
+        public async Task ScheduleAppointment(string email, DateTime appointmentTime)
         {
             var appointment = Appointment.Create(email);
-            _apptRepository.Save(appointment);
+            await _apptRepository.Save(appointment);
         }
     }
 }

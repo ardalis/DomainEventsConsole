@@ -19,7 +19,7 @@ namespace DomainEventsConsole
                         .BuildServiceProvider()
                         .GetRequiredService<App>();
 
-            app.Run();
+            await app.Run();
 
         }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DomainEventsConsole.Interfaces
 {
@@ -7,6 +8,6 @@ namespace DomainEventsConsole.Interfaces
     {
         TEntity GetById(Guid id);
         List<TEntity> GetAll();
-        void Save(TEntity entity);
+        Task Save(TEntity entity);
     }
 }
