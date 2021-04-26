@@ -30,7 +30,13 @@ namespace DomainEventsConsole.Model
             var appointment = new Appointment();
             appointment.EmailAddress = emailAddress;
 
-            appointment.Events.Add(new AppointmentCreated(appointment));
+            // send an email - pretend there's 5-10 lines of code here to send an email
+            Console.WriteLine("Notification email sent to {0}", emailAddress);
+
+            // update the user interface - pretend some code here pops up a notification in the UI
+            Console.WriteLine("User Interface informed appointment created for {0}", emailAddress);
+
+            // appointment.Events.Add(new AppointmentCreated(appointment));
 
             return appointment;
         }
