@@ -7,6 +7,6 @@ namespace DomainEventsConsole.Interfaces
     public interface IEntity
     {
         Guid Id { get; }
-        List<INotification> Events { get; }
+        //List<INotification> Events { get; }
     }
 }

@@ -1,6 +1,5 @@
 using DomainEventsConsole.Events;
 using DomainEventsConsole.Interfaces;
-using MediatR;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +11,6 @@ namespace DomainEventsConsole.Model
         public string EmailAddress { get; private set; }
         public DateTime? ConfirmationReceivedDate { get; private set; }
 
-        public List<INotification> Events { get; set; } = new List<INotification>();
         protected Appointment() : this(Guid.NewGuid())
         {
         }
