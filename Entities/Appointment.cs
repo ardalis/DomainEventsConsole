@@ -3,7 +3,6 @@ using DomainEventsConsole.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DomainEventsConsole.Model
 {
@@ -36,7 +35,7 @@ namespace DomainEventsConsole.Model
             // update the user interface - pretend some code here pops up a notification in the UI
             Console.WriteLine("User Interface informed appointment created for {0}", emailAddress);
 
-            // appointment.Events.Add(new AppointmentCreated(appointment));
+            appointment.Events.Add(new AppointmentCreated(appointment));
 
             return appointment;
         }
