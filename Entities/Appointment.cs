@@ -1,7 +1,5 @@
-using DomainEventsConsole.Events;
 using DomainEventsConsole.Interfaces;
 using System;
-using System.Collections.Generic;
 
 namespace DomainEventsConsole.Model
 {
@@ -61,7 +59,12 @@ namespace DomainEventsConsole.Model
         {
             ConfirmationReceivedDate = dateConfirmed;
 
-
+            // update the user interface
+            // pretend some code here pops up a notification in the UI
+            // or sends a message via Blazor
+            // Example:
+            // string message = $"User {emailAddress} created an appointment.";
+            // await HubContext.Clients.All.SendAsync("ReceiveMessage", message); 
             Console.WriteLine("[UI] User Interface informed appointment for {0} confirmed at {1}",
                             EmailAddress,
                             ConfirmationReceivedDate.ToString());

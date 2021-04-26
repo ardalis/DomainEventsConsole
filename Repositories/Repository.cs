@@ -26,17 +26,11 @@ namespace DomainEventsConsole.Repositories
             return _entities.Values.ToList();
         }
 
-        public async Task Save(TEntity entity)
+        public Task Save(TEntity entity)
         {
             _entities[entity.Id] = entity;
             ConsoleWriter.FromRepositories("[DATABASE] Saved entity {0}", entity.Id.ToString());
-
-            var eventsCopy = entity.Events.ToArray();
-            entity.Events.Clear();
-            foreach (var domainEvent in eventsCopy)
-            {
-                await _mediator.Publish(domainEvent).ConfigureAwait(false);
-            }
+            return Task.CompletedTask;
         }
     }
 }
