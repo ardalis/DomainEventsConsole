@@ -63,7 +63,10 @@ namespace DomainEventsConsole.Model
         {
             ConfirmationReceivedDate = dateConfirmed;
 
-            Events.Add(new AppointmentConfirmed(this));
+
+            Console.WriteLine("[UI] User Interface informed appointment for {0} confirmed at {1}",
+                            EmailAddress,
+                            ConfirmationReceivedDate.ToString());
         }
     }
 }
