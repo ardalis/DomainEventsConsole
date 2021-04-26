@@ -13,6 +13,7 @@ namespace DomainEventsConsole
         static async Task Main(string[] args)
         {
             Console.WriteLine("Load services");
+
             var services = ConfigureServices();
 
             var app = services
@@ -20,7 +21,6 @@ namespace DomainEventsConsole
                         .GetRequiredService<App>();
 
             await app.Run();
-
         }
 
         private static IServiceCollection ConfigureServices()
