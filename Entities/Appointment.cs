@@ -12,7 +12,7 @@ namespace DomainEventsConsole.Model
         public string EmailAddress { get; private set; }
         public DateTime? ConfirmationReceivedDate { get; private set; }
 
-        public List<INotification> Events { get; set; } = new List<INotification>();
+        public List<IDomainEvent> Events { get; set; } = new List<IDomainEvent>();
         protected Appointment() : this(Guid.NewGuid())
         {
         }
