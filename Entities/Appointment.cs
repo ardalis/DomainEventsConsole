@@ -1,6 +1,5 @@
 using DomainEventsConsole.Events;
 using DomainEventsConsole.Interfaces;
-using MediatR;
 using System;
 using System.Collections.Generic;
 
@@ -39,7 +38,8 @@ namespace DomainEventsConsole.Model
             // mailMessage.IsBodyHtml = true;
             // mailMessage.Body = body;
             // client.Send(mailMessage);
-            Console.WriteLine("Notification email sent to {0}", emailAddress);
+            // Console.WriteLine("Notification email sent to {0}", emailAddress);
+            appointment.Events.Add(new AppointmentCreated(appointment));
 
             // update the user interface
             // pretend some code here pops up a notification in the UI
@@ -47,7 +47,7 @@ namespace DomainEventsConsole.Model
             // Example:
             // string message = $"User {emailAddress} created an appointment.";
             // await HubContext.Clients.All.SendAsync("ReceiveMessage", message); 
-            Console.WriteLine("User Interface informed appointment created for {0}", emailAddress);
+            //Console.WriteLine("User Interface informed appointment created for {0}", emailAddress);
 
             return appointment;
         }
